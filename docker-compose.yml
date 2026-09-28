@@ -27,6 +27,7 @@ services:
       LEVEL: "default"
       FORCE_WORLD_COPY: "TRUE"
       MEMORY: 4G
+      MAX_PLAYERS: 16
     volumes:
       - ./data_default:/data
     stop_grace_period: 60s
@@ -47,6 +48,7 @@ services:
       LEVEL: "rage"
       FORCE_WORLD_COPY: "TRUE"
       MEMORY: 4G
+      MAX_PLAYERS: 16
     volumes:
       - ./data_rage:/data
     stop_grace_period: 60s
