@@ -23,6 +23,9 @@ services:
       MODRINTH_PROJECTS: "fabric-api,fabric-language-kotlin,lithium,ferrite-core,fabricproxy-lite"
       MODS: "${MOD_URL}"
       FABRIC_PROXY_SECRET: "${FORWARDING_SECRET}"
+      WORLD: "${MAP_DEFAULT_URL}"
+      LEVEL: "default"
+      FORCE_WORLD_COPY: "TRUE"
       MEMORY: 4G
     volumes:
       - ./data_default:/data
@@ -40,6 +43,9 @@ services:
       MODRINTH_PROJECTS: "fabric-api,fabric-language-kotlin,lithium,ferrite-core,fabricproxy-lite"
       MODS: "${MOD_URL}"
       FABRIC_PROXY_SECRET: "${FORWARDING_SECRET}"
+      WORLD: "${MAP_RAGE_URL}"
+      LEVEL: "rage"
+      FORCE_WORLD_COPY: "TRUE"
       MEMORY: 4G
     volumes:
       - ./data_rage:/data
