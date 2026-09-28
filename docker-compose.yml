@@ -8,32 +8,39 @@ services:
       - "25565:25577"
     volumes:
       - ./velocity-data:/server
+      - ./velocity-config:/config
     restart: unless-stopped
     stdin_open: true
     tty: true
+
   map-default:
     image: itzg/minecraft-server:java25
-    ports: ["25565:25565"]
+    container_name: map-default
     environment:
       EULA: "TRUE"
       ONLINE_MODE: "FALSE"
       TYPE: FABRIC
       VERSION: "${MC_VERSION}"
       MODRINTH_PROJECTS: "fabric-api,fabric-language-kotlin,lithium,ferrite-core,fabricproxy-lite"
+      MODS: "${MOD_URL}"
+      FABRIC_PROXY_SECRET: "${FORWARDING_SECRET}"
       MEMORY: 4G
     volumes:
       - ./data_default:/data
     stop_grace_period: 60s
     restart: unless-stopped
+
   map-rage:
     image: itzg/minecraft-server:java25
-    ports: ["25565:25565"]
+    container_name: map-rage
     environment:
       EULA: "TRUE"
       ONLINE_MODE: "FALSE"
       TYPE: FABRIC
       VERSION: "${MC_VERSION}"
       MODRINTH_PROJECTS: "fabric-api,fabric-language-kotlin,lithium,ferrite-core,fabricproxy-lite"
+      MODS: "${MOD_URL}"
+      FABRIC_PROXY_SECRET: "${FORWARDING_SECRET}"
       MEMORY: 4G
     volumes:
       - ./data_rage:/data
