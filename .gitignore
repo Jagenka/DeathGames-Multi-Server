@@ -1,0 +1,22 @@
+### Docker / Deploy ###
+# Laufzeit-Daten der Server (Welten, Logs, generierte Configs, Mods-Download-Cache)
+data_default/
+data_rage/
+velocity-data/
+
+# Secrets / lokale Overrides
+.env
+.env.*
+docker-compose.override.yml
+
+### IDE ###
+.idea/
+.vscode/
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Logs / Sonstiges ###
+*.log
+*.pid

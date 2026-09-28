@@ -8,7 +8,6 @@ services:
       - "25565:25577"
     volumes:
       - ./velocity-data:/server
-      - ./velocity-config:/config
     restart: unless-stopped
     stdin_open: true
     tty: true
