@@ -1,0 +1,41 @@
+services:
+  proxy:
+    image: itzg/mc-proxy
+    container_name: velocity
+    environment:
+      TYPE: "VELOCITY"
+    ports:
+      - "25565:25577"
+    volumes:
+      - ./velocity-data:/server
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+  map-default:
+    image: itzg/minecraft-server:java25
+    ports: ["25565:25565"]
+    environment:
+      EULA: "TRUE"
+      ONLINE_MODE: "FALSE"
+      TYPE: FABRIC
+      VERSION: "${MC_VERSION}"
+      MODRINTH_PROJECTS: "fabric-api,fabric-language-kotlin,lithium,ferrite-core,fabricproxy-lite"
+      MEMORY: 4G
+    volumes:
+      - ./data_default:/data
+    stop_grace_period: 60s
+    restart: unless-stopped
+  map-rage:
+    image: itzg/minecraft-server:java25
+    ports: ["25565:25565"]
+    environment:
+      EULA: "TRUE"
+      ONLINE_MODE: "FALSE"
+      TYPE: FABRIC
+      VERSION: "${MC_VERSION}"
+      MODRINTH_PROJECTS: "fabric-api,fabric-language-kotlin,lithium,ferrite-core,fabricproxy-lite"
+      MEMORY: 4G
+    volumes:
+      - ./data_rage:/data
+    stop_grace_period: 60s
+    restart: unless-stopped
